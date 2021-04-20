@@ -1,4 +1,3 @@
-
 package com.stratify.spring.files.excel.controller;
 
 
@@ -40,8 +39,7 @@ public class FilterController
             @PathVariable("team") String team,
             @PathVariable("product") String product,
             @PathVariable("bookingType") String bookingType)
-//            @PathVariable("startDate") LocalDateTime startDate,
-//            @PathVariable("endDate") LocalDateTime endDate)
+
     {
         List<MockData> mockData = mockdataService.getAllMockdata();
 
@@ -59,14 +57,9 @@ public class FilterController
                 .filter(x -> x.getTeam().equals(team))
                 .filter(x -> x.getProduct().equals(product))
                 .filter(x -> x.getBookingType().equals(bookingType))
-//                .filter(x -> x.getBookingDate().isAfter(startDate))
-//                .filter(x -> x.getBookingDate().isBefore(endDate))
-
                 .collect(Collectors.toList());
 
         retVal = ResponseEntity.ok(collect);
         return retVal;
     }
-
-
 }
